@@ -1,0 +1,10 @@
+variable "region" {}
+variable "gcp_project" {}
+#variable "credentials" {}
+variable "network" {}
+variable "public_cidr" {}
+variable "secondary_subnet_cidr" {}
+variable "private_google_access" {}
+variable "igw" {}
+variable "priority" {}
+variable "hop" {}
