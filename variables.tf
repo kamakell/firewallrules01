@@ -8,3 +8,4 @@ variable "private_google_access" {}
 variable "igw" {}
 variable "priority" {}
 variable "hop" {}
+variable "google_compute_network" {}
