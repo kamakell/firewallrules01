@@ -1,5 +1,5 @@
 region          = "europe-west2"
-gcp_project     = "sales-eu01"
+gcp_project     = "vf-grp-pcs-tst-sandbox01"
 #credentials     = "credentials.json"
 network            = "sit"
 public_cidr     = "192.168.0.0/24"
