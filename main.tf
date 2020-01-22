@@ -14,6 +14,7 @@ provider "google" {
 resource "google_compute_network" "vpc" {
  name                    = "${var.network}-vpc"
  auto_create_subnetworks = "false"
+ count = "${var.google_compute_network}"
 }
 
 // Create Subnet
