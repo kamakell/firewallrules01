@@ -18,7 +18,7 @@ resource "google_compute_network" "vpc02" {
 }
 
 // Create Subnet
-resource "google_compute_subnetwork" "public" {
+resource "google_compute_subnetwork02" "public" {
  name          = "${var.network}-public"
  description   = "This subnet is Public Subnetwork"
  ip_cidr_range = "${var.public_cidr02}"
@@ -28,7 +28,7 @@ resource "google_compute_subnetwork" "public" {
  private_ip_google_access = "${var.private_google_access}"
  }
 
-resource "google_compute_subnetwork" "private" {
+resource "google_compute_subnetwork02" "private" {
  name          = "${var.network}-private"
  ip_cidr_range = "${var.secondary_subnet_cidr02}"
  network       = "${var.network}-vpc"
@@ -46,7 +46,7 @@ resource "google_compute_subnetwork" "private" {
 //   priority     = "${var.priority}"
 // }
 // VPC firewall configuration
-// resource "google_compute_firewall" "firewall" {
+// resource "" "firewall" {
 //   name    = "${var.network}-firewall"
 //   network = "${google_compute_network.vpc.name}"
 
@@ -62,7 +62,7 @@ resource "google_compute_subnetwork" "private" {
 //   source_ranges = ["0.0.0.0/0"]
 // }
 
-resource "google_compute_firewall" "ssh" {
+resource "google_compute_firewall02" "ssh" {
   name    = "${var.network}-firewall-ssh"
   network      = "${var.network}-vpc"
 
@@ -75,7 +75,7 @@ resource "google_compute_firewall" "ssh" {
   source_ranges = ["0.0.0.0/0"]
 }
 
-resource "google_compute_firewall" "http" {
+resource "google_compute_firewall02" "http" {
   name    = "${var.network}-firewall-http"
   network      = "${var.network}-vpc"
   enable_logging = "true"
@@ -93,7 +93,7 @@ resource "google_compute_firewall" "http" {
   }
 }
 
-resource "google_compute_firewall" "abcd" {
+resource "google_compute_firewall02" "abcd" {
   name    = "${var.network}-firewall-abcd"
   network      = "${var.network}-vpc"
   enable_logging = "true"
