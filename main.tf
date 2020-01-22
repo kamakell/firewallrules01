@@ -1,9 +1,9 @@
-terraform {
-  backend "gcs" {
-    bucket  = "sales-eu01-shared"
-    prefix  = "terraform/state"
-  }
-}
+#terraform {
+ # backend "gcs" {
+  #  bucket  = "abc"
+   # prefix  = "terraform/state"
+  #}
+#}
 // Configure the Google Cloud provider
 provider "google" {
  # credentials = "${file("${var.credentials}")}"
@@ -79,24 +79,24 @@ resource "google_compute_firewall" "http" {
   enable_logging = "true"
   priority = "1010"
   source_ranges = ["0.0.0.0/0"]
-  source_service_accounts = ["hpa01-a@sales-eu01.iam.gserviceaccount.com"]
+  source_service_accounts = ["kpa-sa01@vf-grp-pcs-tst-sandbox01.iam.gserviceaccount.com"]
    allow {
     protocol = "tcp"
     ports    = ["22"]
   }
-  target_service_accounts  = ["hpa01-a@sales-eu01.iam.gserviceaccount.com"]
+  target_service_accounts  = ["kpa-sa01@vf-grp-pcs-tst-sandbox01.iam.gserviceaccount.com"]
    allow {
     protocol = "tcp"
     ports    = ["22"]
   }
 }
 
-resource "google_compute_firewall" "arjun" {
-  name    = "${var.network}-firewall-arjun"
+resource "google_compute_firewall" "abcd" {
+  name    = "${var.network}-firewall-abcd"
   network      = "${var.network}-vpc"
   enable_logging = "true"
   priority = "1020"
-  target_tags = ["annanya"]
+  target_tags = ["vcd"]
   source_tags = ["abc"]
   allow {
     protocol = "tcp"
