@@ -21,7 +21,7 @@ resource "google_compute_network" "vpc02" {
 resource "google_compute_subnetwork" "public" {
  name          = "${var.network}-public"
  description   = "This subnet is Public Subnetwork"
- ip_cidr_range = "${var.public_cidr}"
+ ip_cidr_range = "${var.public_cidr02}"
  network       = "${var.network}-vpc"
  depends_on    = [google_compute_network.vpc]
  region      = "${var.region}"
@@ -30,11 +30,12 @@ resource "google_compute_subnetwork" "public" {
 
 resource "google_compute_subnetwork" "private" {
  name          = "${var.network}-private"
- ip_cidr_range = "${var.secondary_subnet_cidr}"
+ ip_cidr_range = "${var.secondary_subnet_cidr02}"
  network       = "${var.network}-vpc"
  depends_on    = [google_compute_network.vpc]
  region      = "${var.region}"
 }
+
 // VPC Route Configuration
 // resource "google_compute_route" "route-igw" {
 //   name         = "route-igw"
